@@ -1,6 +1,9 @@
 package geniespring.config.autoconfig;
 
 
+import geniespring.config.MyConfigurationProperties;
+
+@MyConfigurationProperties(prefix = "server")
 public class ServerProperties {
 
     private String contextPath;
