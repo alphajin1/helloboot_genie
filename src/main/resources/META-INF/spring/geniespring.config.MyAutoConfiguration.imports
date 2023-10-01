@@ -1,3 +1,4 @@
+geniespring.config.autoconfig.DataSourceConfig
 geniespring.config.autoconfig.PropertyPostProcessorConfig
 geniespring.config.autoconfig.JettyWebServerConfig
 geniespring.config.autoconfig.TomcatWebServerConfig
