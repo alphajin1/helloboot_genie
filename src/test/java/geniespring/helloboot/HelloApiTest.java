@@ -19,7 +19,7 @@ public class HelloApiTest {
 
         // ResponseType = String
         ResponseEntity<String> res =
-                rest.getForEntity("http://localhost:8080/app/hello?name={name}", String.class, "Spring");
+                rest.getForEntity("http://localhost:9090/app/hello?name={name}", String.class, "Spring");
 
         // status 200
         assertThat(res.getStatusCode()).isEqualTo(HttpStatus.OK);
@@ -39,7 +39,7 @@ public class HelloApiTest {
 
         // ResponseType = String
         ResponseEntity<String> res =
-                rest.getForEntity("http://localhost:8080/app/hello?name=", String.class);
+                rest.getForEntity("http://localhost:9090/app/hello?name=", String.class);
 
         // status 500
         assertThat(res.getStatusCode()).isEqualTo(HttpStatus.INTERNAL_SERVER_ERROR);

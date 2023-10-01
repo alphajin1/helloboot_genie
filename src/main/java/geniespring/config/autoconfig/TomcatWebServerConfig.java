@@ -2,7 +2,6 @@ package geniespring.config.autoconfig;
 
 import geniespring.config.ConditionalMyOnClass;
 import geniespring.config.MyAutoConfiguration;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
 import org.springframework.boot.web.servlet.server.ServletWebServerFactory;
@@ -16,16 +15,16 @@ import org.springframework.context.annotation.Bean;
 public class TomcatWebServerConfig {
 
     // Spring의 기본 기능이 아님. PropertyPlaceholderConfig 추가
-    @Value("${contextPath}")
-    String contextPath;
+
 
     @Bean("TomcatWebServerFactory")
     @ConditionalOnMissingBean
-    public ServletWebServerFactory servletWebServerFactory() {
+    public ServletWebServerFactory servletWebServerFactory(ServerProperties properties) {
 
         // TomcatServletContainer
         TomcatServletWebServerFactory factory = new TomcatServletWebServerFactory();
-        factory.setContextPath(contextPath);
+        factory.setContextPath(properties.getContextPath());
+        factory.setPort(properties.getPort());
         return factory;
     }
 

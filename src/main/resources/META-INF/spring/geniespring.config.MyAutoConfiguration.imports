@@ -1,3 +1,4 @@
+geniespring.config.autoconfig.ServerPropertiesConfig
 geniespring.config.autoconfig.JettyWebServerConfig
 geniespring.config.autoconfig.TomcatWebServerConfig
 geniespring.config.autoconfig.DispatcherServletConfig
