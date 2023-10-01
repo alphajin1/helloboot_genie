@@ -1,6 +1,0 @@
-geniespring.config.autoconfig.DataSourceConfig
-geniespring.config.autoconfig.PropertyPostProcessorConfig
-geniespring.config.autoconfig.JettyWebServerConfig
-geniespring.config.autoconfig.TomcatWebServerConfig
-geniespring.config.autoconfig.DispatcherServletConfig
-geniespring.config.autoconfig.PropertyPlaceholderConfig

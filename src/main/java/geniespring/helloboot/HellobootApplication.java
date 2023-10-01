@@ -1,14 +1,14 @@
 package geniespring.helloboot;
 
-import geniespring.config.MySpringBootApplication;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import javax.annotation.PostConstruct;
 
 // 구성정보를 가진 Class 이니 Spring 에게 알려준다.
 // Configuration 이 있으면... 최초에 뭔가 다양한 것을 등록하나 보다?
-@MySpringBootApplication
+@SpringBootApplication
 public class HellobootApplication {
 
 
