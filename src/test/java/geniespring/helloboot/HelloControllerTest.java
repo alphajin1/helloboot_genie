@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 public class HelloControllerTest {
 
+
     // Test 가 고립되기 때문에 매우 유용
     @Test
     void helloController() {
