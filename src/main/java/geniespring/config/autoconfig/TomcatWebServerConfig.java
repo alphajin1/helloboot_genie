@@ -17,6 +17,7 @@ public class TomcatWebServerConfig {
     @ConditionalOnMissingBean // 이미 등록된 것이 없을 떄에만 등록할 것 (Type 인듯?)
     public ServletWebServerFactory servletWebServerFactory() {
 
+        // TomcatServletContainer
         return new TomcatServletWebServerFactory();
     }
 

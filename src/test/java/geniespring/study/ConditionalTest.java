@@ -18,7 +18,7 @@ public class ConditionalTest {
     @Test
     void conditional() {
         // true
-        // ApplicationContextRunner 는 SpringBoot 에서 제공해줌.
+        // ApplicationContextRunner 는 SpringBoot 에서 제공해줌. (Test전용)
         ApplicationContextRunner contextRunner = new ApplicationContextRunner();
         contextRunner.withUserConfiguration(Config1.class).run(
                 context -> {
@@ -27,6 +27,7 @@ public class ConditionalTest {
                 }
         );
 
+        // false
         new ApplicationContextRunner().withUserConfiguration(Config2.class).run(
                 context -> {
                     assertThat(context).doesNotHaveBean(MyBean.class);
