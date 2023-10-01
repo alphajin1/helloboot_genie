@@ -9,7 +9,18 @@ import org.springframework.context.annotation.Configuration;
 public class ConfigurationTest {
 
     @Test
-    void configuration() {
+    void configuration1() {
+        MyConfig myConfig = new MyConfig();
+        Bean1 bean1 = myConfig.bean1();
+        Bean2 bean2 = myConfig.bean2();
+
+        // isNotSame !
+        Assertions.assertThat(bean1.common).isNotSameAs(bean2.common);
+    }
+
+    @Test
+    void configuration2() {
+        // Configuration 이 붙으면은 Proxy 방식으로 생성되면서, Bean이 싱글톤 레지스트리로 관리됨.
         AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext();
         ac.register(MyConfig.class);
         ac.refresh();
@@ -18,15 +29,13 @@ public class ConfigurationTest {
         Bean2 bean2 = ac.getBean(Bean2.class);
 
         Assertions.assertThat(bean1.common).isSameAs(bean2.common);
-
-//        MyConfig myConfig = new MyConfig();
-//        Bean1 bean1 = myConfig.bean1();
-//        Bean2 bean2 = myConfig.bean2();
-//        Assertions.assertThat(bean1.common).isSameAs(bean2.common);
     }
+
+
 
     @Test
     void proxyCommonMethod() {
+        // 어떻게 Proxy 방식으로 생성되는지 테스트
         MyConfigProxy myConfigProxy = new MyConfigProxy();
         Bean1 bean1 = myConfigProxy.bean1();
         Bean2 bean2 = myConfigProxy.bean2();
@@ -47,7 +56,7 @@ public class ConfigurationTest {
     }
 
     @Configuration()
-//    @Configuration(proxyBeanMethods = false) // 이거이면 ERROR 남.
+//    @Configuration(proxyBeanMethods = false) // 이렇게 할 경우에는 ProxyBean이 설정되지 않아서, ERROR
     static class MyConfig {
 
         @Bean

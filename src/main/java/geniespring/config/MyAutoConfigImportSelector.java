@@ -9,6 +9,8 @@ import java.util.List;
 
 public class MyAutoConfigImportSelector implements DeferredImportSelector {
 
+    // 1. BeanClassLoaderAware 를 사용하거나,
+    // 2. 생성자 방식 (요즘 선호 방식)
     private final ClassLoader classLoader;
 
     public MyAutoConfigImportSelector(ClassLoader classLoader) {
@@ -26,6 +28,7 @@ public class MyAutoConfigImportSelector implements DeferredImportSelector {
 //            autoConfigs.add(candidate);
 //        }
 
+        // 어떤 파일에서 읽어올지는 load 에 가서 description 을 보아야 함
         // fileName: META-INF/spring/full-qualified-annotation-name.imports
         ImportCandidates.load(MyAutoConfiguration.class, classLoader).forEach(autoConfigs::add);
 
